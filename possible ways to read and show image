@@ -1,0 +1,15 @@
+import cv2                   #import open-cv library into python
+import plotlib.pyplot as plt #import plotlib library into python
+
+# first way:
+img_name = 'name of image'   # paste initial image into python project to be access it with its name
+image = cv2.imread(filename) # image is now a variable
+cv2.imshow(image) # save image to be displayed
+cv2.waitKey(0) # display image on screen and terminate program once the display is closed
+cv2.destroyAllWindows() # terminate windows fully(optional)
+
+#second way:
+
+img_name = 'name of image'
+plt.imshow(img_name)
+plt.axis('off')        # take off axis from image

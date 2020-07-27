@@ -1,0 +1,26 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+import time
+
+start_time = time.time()
+
+img = cv2.imread('filename')
+
+kernel_size = (15,15) # kernel size of gaussian filter matrix is 15x15, the filter matrix is the rowsxcolumns matrix of pixels slided over each pixel to generate the average value
+
+blur = cv2.GaussianBlur(img, kernel_size, 0) #slide kernel_size matrix over each pixel and generate average
+
+def plot_cv_img(input_image, output_image):
+    fig, ax = plt.subplots(nrows=1, ncols=2)
+    ax[0].imshow(cv2.cvtColor(input_image, cv2.COLOR_BGR2RGB)) #change BGR to RGB for matplotlib
+    ax[0].set_title('Input Image')
+    ax[0].axis('off')
+    ax[1].imshow(cv2.cvtColor(output_image, cv2.COLOR_BGR2RGB)) #change BGR to RGB for matplotlib
+    ax[1].set_title('Gaussian Blurred')
+    ax[1].axis('off')
+    plt.show()
+
+print("---s% second---" % (time.time()-start_time))
+
+plot_cv_img(img, blur)

@@ -1,0 +1,17 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+import time # import time library from (supposedly) pip
+
+start_time = time.time() #start run the timer at beginning of program execution
+
+img = cv2.imread('name of the image')   #read the image
+
+gray= cv2.cvtColor(img, cv2.COLOR_RGB2GRAY) #convert image to gray
+
+plt.imshow(gray, cmap='gray')  # show image gray
+plt.axis('off') 
+
+print("--- %s seconds ---" % (time.time() - start_time)) #stop timer of program execution
+
+plt.show() #plot the graph 

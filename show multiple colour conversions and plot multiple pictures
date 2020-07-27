@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+import time
+
+start_time = time.time()
+
+img = cv2.imread('R2.JPG.jpg')
+
+BGR = cv2.cvtColor(img, cv2.COLOR_RGB2BGR) # plot pictures using BGR(BlueGreenRed) instead of the other way around
+RGB = cv2.cvtColor(img, cv2.COLOR_RGB2HLS) # plot pictures using HLS (hue,intensity,saturation) instead of RGB
+
+photos = np.hstack([BGR, RGB]) #pin both images togethe into one
+
+plt.imshow(photos)
+plt.axis('off')
+
+print("--- %s seconds ---" % (time.time() - start_time))
+
+plt.show()

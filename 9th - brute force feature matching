@@ -31,4 +31,5 @@ for m in matches:
 
 plt.imshow(matching_result)
 plt.axis('off')
+print("Runtime: ", (time.time() - start_time))
 plt.show()

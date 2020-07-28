@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+import time
+
+start_time = time.time()
+filename= 'R2.JPG.jpg'
+
+img = cv2.imread(filename)
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# harrison corner parameters
+block_size = 4 # size of covariance matrix
+kernel_size = 3 #neighborhood  Kernel
+k = 0.01 #parameter for harrison corner score
+
+#compute harrison corner
+
+corners = cv2.cornerHarris(gray, block_size, kernel_size, k)
+
+#create harrison corner
+display_corner = np.ones(gray.shape[:2])
+display_corner *= 255
+#apply thresholding to corner score
+thresh = 0.01 #more than 1% matrix value
+display_corner[corners>thresh*corners.max()] = 10 # display pixel value
+
+plt.imshow(display_corner,cmap= 'gray')
+plt.axis('off')
+plt.show()

@@ -1,0 +1,44 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+import time
+
+def compute_orb_keypoints(filename):
+    """
+    Reads image from filename and computes ORB keypoints Returns image, keypoints and descriptors.
+    """
+    # load image
+    img = cv2.imread(filename)  # create orb object
+    orb = cv2.ORB_create()
+     # set parameters
+     #FAST feature type
+    orb.setScoreType(cv2.FAST_FEATURE_DETECTOR_TYPE_9_16) # detect keypoints
+    kp = orb.detect(img, None)
+     # for detected keypoints compute descriptors.
+    kp, des = orb.compute(img, kp)
+    return img, kp, des
+
+def draw_keypoints(img, kp):
+    cv2.drawKeypoints(img, kp, img, color= (255, 0,0), flags=5) # take image and plot keypoints on image
+    return img
+
+def plot_image(img, figsize = (12,8)):
+    fig = plt.figure(figsize=figsize)
+    ax = fig.add_subplot(1,1,1)
+
+    ax.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+    plt.axis('off')
+    plt.show()
+
+def main():
+    start_time = time.time()
+    filename = 'R2.JPG.jpg'
+
+    img1, kp1, des1 = compute_orb_keypoints(filename)
+
+    img1 = draw_keypoints(img1, kp1)
+    print("runtime in seconds: ", (time.time()-start_time))
+    plot_image(img1)
+
+if __name__ == '__main__':
+    main()

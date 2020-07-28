@@ -1,0 +1,31 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+import time
+
+start_time = time.time()
+
+filename= 'R2.JPG.jpg'
+
+
+
+def compute_fast_detection(filename, is_nms = True, thresh = 10):
+    # is_nms: flag to use nonmaximal surpression
+    # thresh: threshold value
+    img = cv2.imread(filename)
+
+    Fast = cv2.FastFeatureDetector_create() # create fast feature detect with default values
+
+    if not is_nms:
+        Fast.setThreshold(thresh)
+
+    kp = Fast.detect(img, None)
+
+    cv2.drawKeypoints(img, kp, img, color= (255,0,0))
+
+    return img
+
+
+plt.imshow(compute_fast_detection(filename))
+plt.axis('off')
+plt.show()

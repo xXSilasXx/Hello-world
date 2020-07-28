@@ -1,0 +1,29 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+import time
+
+start_time = time.time()
+
+filename = 'R2.JPG.jpg'
+
+img = cv2.imread(filename)
+
+first_sobel = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize= 5)  # take vertical sobel (sobel - first derivative of pixelmatrix that is the foto)
+
+second_sobel = cv2.Sobel( img, cv2.CV_64F, 0, 1, ksize= 5) # take horizontal sobel
+
+Laplacian = cv2.Laplacian(img, cv2.CV_64F, ksize= 5) # take Laplacian (second order derivative) of a pixelmatrix that is the foto
+
+blur = cv2.GaussianBlur(img, (5,5) ,0) #apply the Gaussian filter on the foto
+
+lapl_blur= cv2.Laplacian(blur, cv2.CV_64F, ksize= 5) # take Laplacian of the Gausian blurred foto
+
+hstck = np.hstack([first_sobel, second_sobel, Laplacian, lapl_blur ])
+
+plt.imshow(hstck)
+plt.axis('off')
+
+print("---s% second---", (time.time() - start_time))
+
+plt.show()

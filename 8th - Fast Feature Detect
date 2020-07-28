@@ -25,7 +25,9 @@ def compute_fast_detection(filename, is_nms = True, thresh = 10):
 
     return img
 
-
 plt.imshow(compute_fast_detection(filename))
 plt.axis('off')
+
+print("Runtime: ", (time.time() - start_time))
+
 plt.show()

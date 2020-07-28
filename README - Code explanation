@@ -15,6 +15,14 @@ np.hstack sticks images together into one image, approximately
 
 4th:
 
+The Gaussian filter is a process in which an x by x kernel matrix is shifted over all the pixels in the picture. 
+The matrix is Gaussian means that the middle point of the matrix is biggest and all other points around it get gradually smaller 
+to mirror a gaussian distribution when you look at it from the bird perspective.
+As the matrix shifts over the pixels the middle pixel becomes the average out of all the pixels around it to smooth the image.
+
+5th:
+
+
 
 
 

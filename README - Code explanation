@@ -1,4 +1,6 @@
 Read the codes (especially the comments behind it) first before you read the corresponding parts of this document
+All codes are taken from the book linked to this github file. In order to fully understand, look up the chapters
+
 
 1st:
 
@@ -21,6 +23,27 @@ to mirror a gaussian distribution when you look at it from the bird perspective.
 As the matrix shifts over the pixels the middle pixel becomes the average out of all the pixels around it to smooth the image.
 
 5th:
+
+A histogram equalization takes the color spectrum that is highest in the picture and makes a function where this spectrum is highest. 
+Then, it somewhat equalizes this function by increasing the colorspectrum that is 'too' low relative to the global maximum of the function.
+
+6th:
+
+Sobel - Shift a specific kernel matrix over the first derivative of the pixel matrix (that is the image) and average it to the kernal matrix
+Laplacian - same as with the Sobel but use the second order drivative of of the pixel matrix (that is the image) and average it to the kernal matrix
+
+7th:
+
+Corner detection is a score function of a matrix that is shifted over the image and if the score is sufficiently high it returns a corner
+
+8th:
+
+Fast features s a circle of 16 pixels around a central pixel and if the colorspectrum the pixels around the midpixel is sufficiently
+different from the threshold set a feature is detected 
+
+9th:
+
+
 
 
 

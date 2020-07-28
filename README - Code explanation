@@ -6,8 +6,16 @@ The python interpreter used is pycharm
 The 3 imported libraries are downloaded seperately, they are not in the interpreter download by default
 
 2nd:
+The code needs to be converted to gray and shown gray, otherwhise the code will be shown in BGR (look 3rd)
 
+
+3rd:
 photos are shown usually in RGB (Red, Green Blue), however you can use multiple photo plotting options
+np.hstack sticks images together into one image, approximately
+
+4th:
+
+
 
 
 

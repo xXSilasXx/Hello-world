@@ -1,0 +1,18 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+import time
+
+start_time = time.time()
+
+filename = 'R2.JPG.jpg'
+
+img = cv2.imread(filename)
+
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #histograms can only be equalized in gray
+
+equalized = cv2.equalizeHist(gray) #equalize the histogram
+
+plt.imshow(equalized, cmap= 'gray')  #plot histogram in gray
+plt.axis('off')
+plt.show()  #show new equalized histogram

@@ -5,7 +5,7 @@ import time
 
 start_time = time.time()
 
-filename = 'R2.JPG.jpg'
+filename = 'name of the image'
 
 img = cv2.imread(filename)
 
